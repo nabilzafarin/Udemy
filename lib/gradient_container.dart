@@ -1,54 +1,51 @@
 import 'package:first_app/dice_roller.dart';
 import 'package:flutter/material.dart';
+//import 'package:first_app/styled_text.dart';
 
-//initialization var
-const startAlignment = Alignment.topLeft;
-const endAlignment = Alignment.bottomRight;
+// initialization var
+var startAlignment = Alignment.topLeft;
+var endAlignment = Alignment.bottomRight;
 
-//Building Custom Widget
-class GradientContainer extends StatelessWidget { 
-//extends to get material from StatelessWidget classes
+class GradientContainer extends StatelessWidget {
+  // 45) Default Constructor Function 
+  /*45) Named Parameters
+  const GradientContainer({super.key, required this.color1, required this.color2});*/
+  //45) Positional Parameters
+  const GradientContainer(this.color1, this.color2, {super.key});
 
-  //Constructor Functions 2 ways (take key from super class)
-  //1- Initializer list assignment - GradientContainer({key}): super(key: key);
-  //2- Shorthand constructor - GradientContainer({super.key});
-
-  /* 45) named parameters in List values
-  const GradientContainer({super.key, required this.colors});*/
-  /* 45) named parameters - in Individual values*/
-  const GradientContainer(this.color1, this.color2, {super.key}); 
-
-  // 46) Multiple Constructor (assign direct color at function constructor)
-  const GradientContainer.purple({super.key}) : color1 = Colors.deepPurple, color2 = Colors.indigo;
-
+  // 46) Multiple Constructor (assgin direct color at function constructor)
+  const GradientContainer.purple({super.key})
+      : color1 = Colors.deepPurple,
+        color2 = Colors.indigo;
 
   //Variable Class
-  /* 45) variables individual values*/
+  /* 45) variables list values 
+  final List<Color> colors;*/
+  /* 45) variables individual values */
   final Color color1;
   final Color color2;
-  /* 45) variables List values
-  final List<Color> colors;*/
 
-  //Build Widget for represented UI 
-   @override
-   Widget build(context) {
-    return Container( 
+  @override
+  Widget build(BuildContext context) {
+    return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          /* 45) list colors
+          /* 45) Start and end color Gradient */
+          /*45) list colors
           colors: colors,*/
-          /*45) start and end color Gradient*/
+          // 45) individual colors
           colors: [
-            color1,
+            color1, 
             color2
-          ], 
+          ],
           begin: startAlignment,
           end: endAlignment,
         ),
       ),
       child: const Center(
         child: DiceRoller(),
+        //StyledText('Hi'),
       ),
     );
-   } //build should return a widget
+  }
 }
