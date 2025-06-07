@@ -1,3 +1,4 @@
+import 'package:first_app/gradient_container.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,38 +11,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-     title: 'Flutter First App',
-     theme: ThemeData(useMaterial3: true),
-     home: Scaffold(
-      appBar: AppBar(
-        title: const Text('Welcome to FLutter'),
-      ),
-      body: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.all(12),
-        child: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              'Flutter - The Complete Guide Course',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              )
-            ),
-            SizedBox(height: 16),
-            Text(
-              'Learn Flutter step-by-step, from the ground up.',
-              textAlign: TextAlign.center,
-            ),
-          ],
+    return const MaterialApp(
+      home: Scaffold(
+        body: GradientContainer(
+          Color.fromARGB(255, 33, 5, 109), 
+          Color.fromARGB(255, 68, 21, 149)
         ),
+        /* 46) call multple constructor 
+        GradientContainer.purple(),*/
       ),
-     ),
     );
   }
 }
-
